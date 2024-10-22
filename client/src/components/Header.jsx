@@ -5,7 +5,7 @@ import {
 import {
   breakConnection
 } from "../redux/database/databaseSlice";
-import '../assets/scss/components/Header.scss'
+import '../assets/scss/components/header.scss'
 
 const Header = () => {
 
