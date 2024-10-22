@@ -1,0 +1,22 @@
+.content-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    width: 100%;
+    max-width: 350px;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px -1px rgba(0,0,0,.1);
+    border: 1px solid rgb(228, 228, 231);
+
+    &__heading {
+        font-size: 24px;
+        margin-bottom: 10px;
+        letter-spacing: -0.6px;
+    }
+
+    &__content {
+        position: relative;
+        width: 100%;
+    }
+}

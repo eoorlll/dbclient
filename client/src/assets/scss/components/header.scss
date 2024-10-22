@@ -1,0 +1,62 @@
+.site-header {
+    position: relative;
+    width: 100%;
+    border-bottom: 1px solid #eee;
+    height: 60px;
+
+    &__container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__logo {
+        font-weight: 700;
+    }
+
+    &__user-wrap {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    &__user-name {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1;
+        letter-spacing: -0.6px;
+        color: rgb(113, 113, 122);
+    }
+
+    &__user-logout {
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: rgb(9, 9, 11);
+        font-weight: 500;
+        font-size: 14px;
+        letter-spacing: -0.4px;
+        padding: 0 12px;
+        margin: 0;
+        border: 1px solid rgb(228, 228, 231);
+        border-radius: 6px;
+        background-color: rgb(255, 255, 255);
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        cursor: pointer;
+        text-wrap: nowrap;
+        transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+
+        &:hover {
+            background-color: rgb(244, 244, 245);
+        }
+    }
+}
