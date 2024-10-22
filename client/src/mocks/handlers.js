@@ -7,8 +7,14 @@ export const handlers = [
     const number = url.searchParams.get('number') || 20;
     const offset = url.searchParams.get('offset') || 0;
     const search = url.searchParams.get('search');
+    const token = url.searchParams.get('token');
 
-    console.log(number, offset, search);
+    if(!token) {
+      return new HttpResponse(null, {
+        status: 401,
+        statusText: 'Unauthorized',
+      });
+    }
 
     const items = MOCK_DATA.items;
     let filterdItems = items;
@@ -32,6 +38,14 @@ export const handlers = [
   http.get('/db/total', (request) => {
     const url = new URL(request.request.url);
     const search = url.searchParams.get('search');
+    const token = url.searchParams.get('token');
+
+    if(!token) {
+      return new HttpResponse(null, {
+        status: 401,
+        statusText: 'Unauthorized',
+      });
+    }
 
     const items = MOCK_DATA.items;
     let filterdItems = items;
@@ -43,8 +57,6 @@ export const handlers = [
       );
       total = filterdItems.length;
     }
-
-    console.log(total);
 
     return HttpResponse.json({
       total: total,

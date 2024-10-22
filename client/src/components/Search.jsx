@@ -12,6 +12,7 @@ import '../assets/scss/components/search-form.scss';
 const Search = () => {
     const { loading, error: errorMessage, databaseUrl } = useSelector((state) => state.database);
     const dispatch = useDispatch();
+    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MTU3NWZjYWUyY2FiOTFlYTdiNGU3NiIsImlhdCI6MTcyOTYwNzYxM30.MNUX_L0JyTSFLrqHTPyblpLKfy0sQcAkpiQEGHqjYLA';
 
     const handleSearch = async (e) => {
         if ( loading ) return;
@@ -21,10 +22,10 @@ const Search = () => {
         try {
             dispatch(loadingStart());
 
-            const res = await fetch(`${databaseUrl}?number=20&offset=0&search=${e.target.value}`);
+            const res = await fetch(`${databaseUrl}?number=20&offset=0&search=${e.target.value}&token=${token}`);
             const data = await res.json();
 
-            const resTotal = await fetch(`${databaseUrl}/total?search=${e.target.value}`);
+            const resTotal = await fetch(`${databaseUrl}/total?search=${e.target.value}&token=${token}`);
             const total = await resTotal.json();
       
             if (data.success === false) {

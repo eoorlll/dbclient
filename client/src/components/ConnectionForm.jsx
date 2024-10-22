@@ -16,7 +16,8 @@ const ConnectionForm = () => {
     const [formData, setFormData] = useState({});
     const { loading, error: errorMessage, databaseUrl } = useSelector((state) => state.database);
     const dispatch = useDispatch();
-
+    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MTU3NWZjYWUyY2FiOTFlYTdiNGU3NiIsImlhdCI6MTcyOTYwNzYxM30.MNUX_L0JyTSFLrqHTPyblpLKfy0sQcAkpiQEGHqjYLA';
+    
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.id]: e.target.value.trim() });
     };
@@ -31,10 +32,10 @@ const ConnectionForm = () => {
         try {
             dispatch(loadingStart());
 
-            const res = await fetch(`${formData.dburl}?number=20&offset=0`);
+            const res = await fetch(`${formData.dburl}?number=20&offset=0&token=${token}`);
             const data = await res.json();
 
-            const resTotal = await fetch(`${formData.dburl}/total`);
+            const resTotal = await fetch(`${formData.dburl}/total?token=${token}`);
             const total = await resTotal.json();
       
             if (data.success === false) {

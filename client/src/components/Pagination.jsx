@@ -7,6 +7,7 @@ import { useState } from 'react';
 const Pagination = () => {
     const { loading, databaseUrl, currentPage, total } = useSelector((state) => state.database);
     const dispatch = useDispatch();
+    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MTU3NWZjYWUyY2FiOTFlYTdiNGU3NiIsImlhdCI6MTcyOTYwNzYxM30.MNUX_L0JyTSFLrqHTPyblpLKfy0sQcAkpiQEGHqjYLA';
     const perPage = 20;
     const lastPage = Math.ceil(total / perPage);
     const [inputPage, setInputPage] = useState(currentPage);
@@ -21,7 +22,7 @@ const Pagination = () => {
         try {
             dispatch(loadingStart());
 
-            const res = await fetch(`${databaseUrl}?number=${perPage}&offset=${newOffset}`);
+            const res = await fetch(`${databaseUrl}?number=${perPage}&offset=${newOffset}&token=${token}`);
             const data = await res.json();
       
             if (data.success === false) {
