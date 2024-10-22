@@ -4,6 +4,14 @@ import '../assets/scss/components/db-table.scss'
 const DatabaseTable = () => {
     const { currentItems, search } = useSelector((state) => state.database);
 
+    const formatDate = (isoDate) => {
+        const date = new Date(isoDate);
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        const year = date.getFullYear();
+        return `${month}.${day}.${year}, ${date.toLocaleTimeString()}`;
+    };
+
     return (
         <>
             {search && search.length > 0 &&
@@ -27,8 +35,8 @@ const DatabaseTable = () => {
                                     <td>{item.id}</td>
                                     <td>{item.name}</td>
                                     <td>{item.rows}</td>
-                                    <td>{item.createdDate}</td>
-                                    <td>{item.modifiedDate}</td>
+                                    <td>{formatDate(item.createdDate)}</td>
+                                    <td>{formatDate(item.modifiedDate)}</td>
                                 </tr>
                             ))}
                         </tbody>
