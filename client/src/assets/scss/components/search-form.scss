@@ -17,4 +17,12 @@
         padding: 4px 12px;
         height: 36px;
     }
+
+    &__error {
+        color: rgb(113, 113, 122);
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: -0.4px;
+        margin-top: 5px;
+    }
 }

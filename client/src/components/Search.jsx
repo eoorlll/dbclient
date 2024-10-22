@@ -54,10 +54,10 @@ const Search = () => {
                     id="search"
                     onChange={handleSearch}
                 />
+                {errorMessage && (
+                    <p className="search-form__error">{errorMessage}</p>
+                )}
             </form>
-            {errorMessage && (
-                <p className="error">{errorMessage}</p>
-            )}
         </div>
     )
 }
