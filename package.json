@@ -1,0 +1,15 @@
+{
+  "name": "dbclient",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "install": "concurrently \"cd server && npm install\" \"cd client && npm install\"",
+    "start": "concurrently \"cd server && npm run dev\" \"cd client && npm run dev\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^9.0.1"
+  }
+}
